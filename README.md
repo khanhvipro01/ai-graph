@@ -21,7 +21,7 @@
 ## 项目结构
 
 ```
-front-end-effect/
+ai-graph/
   assets/
     motifs/                 # 人物/物品/装饰素材（defs + manifest + meta）
     scenes/                 # 可复用场景模板（SceneSpec mother）
